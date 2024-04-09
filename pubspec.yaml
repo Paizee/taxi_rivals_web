@@ -101,6 +101,12 @@ flutter:
   assets:
     - assets/logo_v2_512.png
     - assets/google-play-badge.png
+    - assets/1507.png
+    - assets/first.png
+    - assets/second.png
+    - assets/third.png
+    - assets/fourth.png
+    - assets/fifth.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
