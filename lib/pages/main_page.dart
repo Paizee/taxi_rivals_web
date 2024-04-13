@@ -6,7 +6,7 @@ import 'package:taxi_rivals_web/pages/Imprint.dart';
 import 'package:taxi_rivals_web/pages/Privacy_policy.dart';
 import 'package:taxi_rivals_web/pages/terms_of_service.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 
 class main_page extends StatefulWidget {
   const main_page({super.key});

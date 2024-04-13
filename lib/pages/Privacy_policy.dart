@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:taxi_rivals_web/pages/terms_of_service.dart';
 import 'package:url_launcher/url_launcher.dart';
-
+import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 import 'Imprint.dart';
 
 class Privacy_policy extends StatefulWidget {
@@ -321,7 +321,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                           Text("Data processing in third countries: If we process data in a third country (i.e., outside the European Union (EU), the European Economic Area (EEA)) or the processing takes place in the context of the use of third-party services or the disclosure or transfer of data to other persons, entities or companies, this is done only in accordance with the legal requirements. If the level of data protection in the third country has been recognized by means of an adequacy decision (Art. 45 DSGVO), this serves as the basis for the data transfer. Otherwise, data transfers will only take place if the level of data protection is otherwise ensured, in particular by standard contractual clauses (Art. 46(2)(c) DSGVO), explicit consent or in the case of contractual or legally required transfer (Art. 49(1) DSGVO). In all other respects, we will inform you of the bases for third-country transfers in the case of individual providers from the third country, with the adequacy decisions taking precedence as the bases. Information on third country transfers and available adequacy decisions can be found in the EU Commission’s information offer:",
                                 style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.016),),
                           InkWell(
-                              onTap: () {},
+                              onTap: () {
+                                launchUrl(Uri.parse("https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de"));
+                              },
                               onHover: (bool) {
                                 setState(() {
                                   link_hover_1 = bool;
@@ -333,7 +335,7 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                   duration: const Duration(milliseconds: 200),
                                   child: const Padding(
                                     padding: EdgeInsets.only(top: 8.0),
-                                    child: Text("https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de."),
+                                    child: Text("https://ec.europa.eu/info/law/law-topic/data-protection/international-dimension-data-protection_de"),
                                   ))),
                           Padding(
                             padding: const EdgeInsets.only(top: 32.0),
@@ -343,7 +345,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                   children: [
                                     const TextSpan(text: "EU-US Trans-Atlantic Data Privacy Framework: Under the so-called “Data Privacy Framework” (DPF), the EU Commission has also recognized the level of data protection for certain companies from the USA as safe under the adequacy decision of 10.07.2023. The list of certified companies as well as further information on the DPF can be found on the website of the US Department of Commerce at "),
                                     WidgetSpan(child: InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          launchUrl(Uri.parse("https://www.dataprivacyframework.gov/"));
+                                        },
                                         onHover: (bool) {
                                           setState(() {
                                             link_hover_2 = bool;
@@ -454,7 +458,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                     const TextSpan(text: "General information on revocation and objection (so-called “opt-out”): ", style: TextStyle(fontWeight: FontWeight.w700)),
                                     const TextSpan(text: "Users can revoke the consent they have given at any time and object to the processing in accordance with the legal requirements. For this purpose, users can, among other things, restrict the use of cookies in the settings of their browser (whereby this may also restrict the functionality of our online offer). An objection to the use of cookies for online marketing purposes can also be declared via the websites "),
                                     WidgetSpan(child: InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          launchUrl(Uri.parse("https://optout.aboutads.info"));
+                                        },
                                         onHover: (bool) {
                                           setState(() {
                                             link_hover_3 = bool;
@@ -467,7 +473,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             child: const Text("https://optout.aboutads.info")))),
                                     const TextSpan(text: " and "),
                                     WidgetSpan(child: InkWell(
-                                        onTap: () {},
+                                        onTap: () {
+                                          launchUrl(Uri.parse("https://www.youronlinechoices.com"));
+                                        },
                                         onHover: (bool) {
                                           setState(() {
                                             link_hover_4 = bool;
@@ -743,7 +751,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                           const TextSpan(text: "STRATO AG, Pascalstraße 10,10587 Berlin, Germany; Legal basis: Legitimate interests (Art. 6 para 1 p. 1 lit. f) DSGVO); "),
                                           const TextSpan(text: "Website: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                           WidgetSpan(child: InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                launchUrl(Uri.parse("https://www.strato.de"));
+                                              },
                                               onHover: (bool) {
                                                 setState(() {
                                                   link_hover_5 = bool;
@@ -756,7 +766,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                   child: const Text("https://www.strato.de")))),
                                           const TextSpan(text: " Privacy Policy: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                           WidgetSpan(child: InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                launchUrl(Uri.parse("https://www.strato.de/datenschutz"));
+                                              },
                                               onHover: (bool) {
                                                 setState(() {
                                                   link_hover_6 = bool;
@@ -777,7 +789,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                           const TextSpan(text: "Legitimate interests (Art. 6 para. 1 p. 1 lit. f) DSGVO); "),
                                           const TextSpan(text: "Website: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                           WidgetSpan(child: InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                launchUrl(Uri.parse("https://www.instart.com"));
+                                              },
                                               onHover: (bool) {
                                                 setState(() {
                                                   link_hover_7 = bool;
@@ -790,7 +804,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                   child: const Text("https://www.instart.com")))),
                                           const TextSpan(text: " Privacy Policy: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                           WidgetSpan(child: InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                launchUrl(Uri.parse("https://www.instart.com/company/legal/privacy-policy"));
+                                              },
                                               onHover: (bool) {
                                                 setState(() {
                                                   link_hover_8 = bool;
@@ -1027,7 +1043,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             const TextSpan(text: "Legitimate interests (Art. 6 para 1 p. 1 lit. f) DSGVO); "),
                                             const TextSpan(text: "Website: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://www.google.com/"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_16 = bool;
@@ -1040,7 +1058,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                     child: const Text("https://www.google.com/")))),
                                             const TextSpan(text: " Privacy Policy: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://policies.google.com/privacy"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_17 = bool;
@@ -1056,7 +1076,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             const TextSpan(text: " Opposition (Opt-Out): ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             const TextSpan(text: "Ad Display Settings: "),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://adssettings.google.com/authenticated"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_18 = bool;
@@ -1185,7 +1207,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             const TextSpan(text: "Legitimate Interests (Art. 6 para. 1 p. 1 lit. f) DSGVO); "),
                                             const TextSpan(text: "Website: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://marketingplatform.google.com/intl/de/about/analytics"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_9 = bool;
@@ -1198,7 +1222,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                     child: const Text("https://marketingplatform.google.com/intl/de/about/analytics")))),
                                             const TextSpan(text: " Privacy Policy: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://policies.google.com/privacy"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_10 = bool;
@@ -1211,7 +1237,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                     child: const Text("https://policies.google.com/privacy")))),
                                             const TextSpan(text: " Assprocessorms Agreement: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://business.safety.google/adsprocessorterms/"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_11 = bool;
@@ -1225,7 +1253,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             const TextSpan(text: " Basic Third Country Transfer: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             const TextSpan(text: "EU-US Data Privacy Framework (DPF), Standard Contractual Clauses ("),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://business.safety.google/adsprocessorterms"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_12 = bool;
@@ -1240,7 +1270,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             const TextSpan(text: " Opposition (Opt-Out): ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             const TextSpan(text: "Opt-Out Plugin: "),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://tools.google.com/dlpage/gaoptout?hl=de"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_13 = bool;
@@ -1253,7 +1285,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                     child: const Text("https://tools.google.com/dlpage/gaoptout?hl=de")))),
                                             const TextSpan(text: ", Ad Display Settings:"),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://adssettings.google.com/authenticated"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_14 = bool;
@@ -1266,7 +1300,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                     child: const Text("https://adssettings.google.com/authenticated")))),
                                             const TextSpan(text: " More information: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://privacy.google.com/businesses/adsservices"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_15 = bool;
@@ -1394,7 +1430,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                             const TextSpan(text: "Legitimate interests (Art. 6 para 1 p. 1 lit. f) DSGVO); "),
                                             const TextSpan(text: "Website: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://www.openstreetmap.de/"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_16 = bool;
@@ -1407,7 +1445,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                                     child: const Text("https://www.openstreetmap.de/")))),
                                             const TextSpan(text: " Privacy Policy: ", style: TextStyle(fontWeight: FontWeight.w700)),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://wiki.osmfoundation.org/wiki/Privacy_Policy"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_17 = bool;
@@ -1616,7 +1656,9 @@ class _Privacy_policyState extends State<Privacy_policy> {
                                           const TextSpan(text: "Advertising-related information: "),
                                           const TextSpan(text: "Google AdMob may collect information about ad views, interactions with ads, and advertising IDs. This information is used by Google AdMob to deliver personalized ads and analyze advertising performance. For more information about Google AdMob’s privacy practices, please visit"),
                                           WidgetSpan(child: InkWell(
-                                              onTap: () {},
+                                              onTap: () {
+                                                launchUrl(Uri.parse("https://support.google.com/admob/answer/6128543?hl=en"));
+                                              },
                                               onHover: (bool) {
                                                 setState(() {
                                                   link_hover_19 = bool;

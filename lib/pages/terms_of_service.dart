@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 
 class Terms_of_service extends StatefulWidget {
   const Terms_of_service({super.key});
@@ -171,7 +173,9 @@ class _Terms_of_serviceState extends State<Terms_of_service> {
                                       children: [
                                         const TextSpan(text: "You can contact us by phone at +49 1795119988, email at "),
                                         WidgetSpan(child: InkWell(
-                                            onTap: () {},
+                                            onTap: () {
+                                              launchUrl(Uri.parse("mailto:contact@taxirivals.com"));
+                                            },
                                             onHover: (bool) {
                                               setState(() {
                                                 link_hover_1 = bool;
@@ -209,7 +213,9 @@ class _Terms_of_serviceState extends State<Terms_of_service> {
                                       children: [
                                         const TextSpan(text: "We will provide you with prior notice of any scheduled changes to the Services you are using. The modified Legal Terms will become effective upon posting or notifying you by "),
                                         WidgetSpan(child: InkWell(
-                                            onTap: () {},
+                                            onTap: () {
+                                              launchUrl(Uri.parse("mailto:contact@taxirivals.com"));
+                                            },
                                             onHover: (bool) {
                                               setState(() {
                                                 link_hover_2 = bool;
@@ -329,7 +335,9 @@ class _Terms_of_serviceState extends State<Terms_of_service> {
                                       children: [
                                         const TextSpan(text: "If you wish to make any use of the Services, Content, or Marks other than as set out in this section or elsewhere in our Legal Terms, please address your request to: "),
                                         WidgetSpan(child: InkWell(
-                                            onTap: () {},
+                                            onTap: () {
+                                              launchUrl(Uri.parse("mailto:contact@taxirivals.com"));
+                                            },
                                             onHover: (bool) {
                                               setState(() {
                                                 link_hover_3 = bool;
@@ -2228,7 +2236,9 @@ class _Terms_of_serviceState extends State<Terms_of_service> {
                                           children: [
                                             const TextSpan(text: "In order to resolve a complaint regarding the Services or to receive further information regarding use of the Services, visit for contacting: "),
                                             WidgetSpan(child: InkWell(
-                                                onTap: () {},
+                                                onTap: () {
+                                                  launchUrl(Uri.parse("https://TaxiRivals.com/#/imprint"));
+                                                },
                                                 onHover: (bool) {
                                                   setState(() {
                                                     link_hover_4 = bool;
