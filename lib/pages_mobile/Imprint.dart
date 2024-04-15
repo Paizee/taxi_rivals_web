@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 
 class Imprint extends StatefulWidget {
   const Imprint({super.key});
@@ -41,68 +41,98 @@ class _ImprintState extends State<Imprint> {
                         child: Image.asset("assets/logo_v2_512.png", width: MediaQuery.of(context).size.width * 0.06)),
                   ),
                   Padding(
-                    padding: const EdgeInsets.only(top: 16.0, right: 32),
-                    child: SizedBox(
-                      width: MediaQuery.of(context).size.width * 0.4,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, "/privacy-policy");
-                              },
-                              onHover: (bool) {
-                                setState(() {
-                                  privacy_policie_hover = bool;
-                                });
-                              },
-                              child: AnimatedDefaultTextStyle(
-                                  style: privacy_policie_hover
-                                      ? TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.w600, color: const Color.fromRGBO(241, 214, 171, 1), fontSize: MediaQuery.of(context).size.height * 0.02)
-                                      : TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.w600, color: const Color.fromRGBO(43, 43, 40, 1), fontSize: MediaQuery.of(context).size.height * 0.015),
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.ease,
-                                  child: const Text(
-                                    "Privacy Policy",
-                                  ))),
-                          InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, "/terms-of-service");
-                              },
-                              onHover: (bool) {
-                                setState(() {
-                                  terms_of_service_hover = bool;
-                                });
-                              },
-                              child: AnimatedDefaultTextStyle(
-                                  style: terms_of_service_hover
-                                      ? TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.w600, color: const Color.fromRGBO(241, 214, 171, 1), fontSize: MediaQuery.of(context).size.height * 0.02)
-                                      : TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.w600, color: const Color.fromRGBO(43, 43, 40, 1), fontSize: MediaQuery.of(context).size.height * 0.015),
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.ease,
-                                  child: const Text("Terms of Service"))),
-                          InkWell(
-                              onTap: () {
-                                Navigator.pushNamed(context, "/imprint");
-                              },
-                              onHover: (bool) {
-                                setState(() {
-                                  imprint_hover = bool;
-                                });
-                              },
-                              child: AnimatedDefaultTextStyle(
-                                  style: imprint_hover
-                                      ? TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.w600, color: const Color.fromRGBO(241, 214, 171, 1), fontSize: MediaQuery.of(context).size.height * 0.02)
-                                      : TextStyle(fontFamily: "Roboto", fontWeight: FontWeight.w600, color: const Color.fromRGBO(43, 43, 40, 1), fontSize: MediaQuery.of(context).size.height * 0.015),
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.ease,
-                                  child: const Text("Imprint"))),
-                          SizedBox(
-                            width: MediaQuery.of(context).size.width * 0.05,
-                          )
-                        ],
-                      ),
-                    ),
+                    padding: const EdgeInsets.all(16.0),
+                    child: InkWell(
+                        onTap: () {
+                          showDialog(
+                              context: context,
+                              builder: (context) {
+                                return StatefulBuilder(
+                                    builder: (context,setState) {
+                                      return Dialog(
+                                        backgroundColor: Color.fromRGBO(43, 43, 40 , 0.7),
+                                        insetPadding: EdgeInsets.all(0),
+                                        shape: RoundedRectangleBorder(borderRadius: BorderRadius.zero),
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width,
+                                          child: Stack(
+                                            children: [
+                                              Align(
+                                                  alignment: Alignment.topRight,
+                                                  child: Padding(
+                                                    padding: const EdgeInsets.all(16.0),
+                                                    child: InkWell(
+                                                        onTap: () {
+                                                          Navigator.pop(context);
+                                                        },
+                                                        child: Icon(PhosphorIcons.x(PhosphorIconsStyle.bold),size: MediaQuery.of(context).size.width * 0.06,color: Color.fromRGBO(241, 214, 171, 1),)),
+                                                  )),
+                                              Align(
+                                                alignment: Alignment.center,
+                                                child: Column(
+                                                  mainAxisAlignment: MainAxisAlignment.center,
+                                                  children: [
+                                                    InkWell(
+                                                        onTap: () {
+                                                          Navigator.pushNamed(context, "/privacy-policy");
+                                                        },
+                                                        onHover: (bool) {
+                                                          setState(() {
+                                                            privacy_policie_hover = bool;
+                                                          });
+                                                        },
+                                                        child: AnimatedDefaultTextStyle(
+                                                            style: privacy_policie_hover ? TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w600,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.width * 0.06) : TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w600,color: const Color.fromRGBO(241, 214, 171, 1),fontSize: MediaQuery.of(context).size.width * 0.06),
+                                                            duration: const Duration(milliseconds: 300),
+                                                            curve: Curves.ease,
+                                                            child: const Text("Privacy Policy",)
+                                                        )
+                                                    ),
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(top: 32.0,bottom: 32),
+                                                      child: InkWell(
+                                                          onTap: () {
+                                                            Navigator.pushNamed(context, "/terms-of-service");
+                                                          },
+                                                          onHover: (bool) {
+                                                            setState(() {
+                                                              terms_of_service_hover = bool;
+                                                            });
+                                                          },
+                                                          child: AnimatedDefaultTextStyle(
+                                                              style: terms_of_service_hover ? TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w600,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.width * 0.06) : TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w600,color: const Color.fromRGBO(241, 214, 171, 1),fontSize: MediaQuery.of(context).size.width * 0.06),
+                                                              duration: const Duration(milliseconds: 300),
+                                                              curve: Curves.ease,
+                                                              child: const Text("Terms of Service"))
+                                                      ),
+                                                    ),
+                                                    InkWell(
+                                                        onTap: () {
+                                                          Navigator.pushNamed(context, "/imprint");
+                                                        },
+                                                        onHover: (bool) {
+                                                          setState(() {
+                                                            imprint_hover = bool;
+                                                          });
+                                                        },
+                                                        child: AnimatedDefaultTextStyle(
+                                                            style: imprint_hover ? TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w600,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.width * 0.06) : TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w600,color: const Color.fromRGBO(241, 214, 171, 1),fontSize: MediaQuery.of(context).size.width * 0.06),
+                                                            duration: const Duration(milliseconds: 300),
+                                                            curve: Curves.ease,
+                                                            child: const Text("Imprint"))),
+                                                  ],
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      );
+                                    }
+
+                                );
+                              });
+                        },
+                        child: Icon(PhosphorIcons.list(PhosphorIconsStyle.bold),size: MediaQuery.of(context).size.width * 0.06)),
                   )
                 ],
               ),

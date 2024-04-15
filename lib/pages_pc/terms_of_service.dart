@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 
 class Terms_of_service extends StatefulWidget {
   const Terms_of_service({super.key});
@@ -2206,7 +2205,7 @@ class _Terms_of_serviceState extends State<Terms_of_service> {
                                   Center(
                                     child: Padding(
                                       padding: const EdgeInsets.only(top: 48.0, bottom: 16),
-                                      child: Text("28. MISCELLANEOUS",style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.025),),
+                                      child: Text("28. MISCELLANEOUS",style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w700,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.025),),
                                     ),
                                   ),
                                   Padding(

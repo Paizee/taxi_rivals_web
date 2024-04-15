@@ -1,12 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:icon_decoration/icon_decoration.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
-import 'package:http/http.dart' as http;
-import 'package:taxi_rivals_web/pages/Imprint.dart';
-import 'package:taxi_rivals_web/pages/Privacy_policy.dart';
-import 'package:taxi_rivals_web/pages/terms_of_service.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter_improved_scrolling/flutter_improved_scrolling.dart';
 
 class main_page extends StatefulWidget {
   const main_page({super.key});
@@ -27,6 +22,7 @@ class _main_pageState extends State<main_page> {
   bool imprint_hover_bottom = false;
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       backgroundColor: const Color.fromRGBO(43, 43, 40 , 1),
       body: SingleChildScrollView(
@@ -49,7 +45,7 @@ class _main_pageState extends State<main_page> {
                             children: [
                               Padding(
                                 padding: const EdgeInsets.only(left: 16.0),
-                                child: Image.asset("assets/logo_v2_512.png",width: MediaQuery.of(context).size.width * 0.06),
+                                child: Image.asset("assets/logo_v2_512.png",width: MediaQuery.of(context).size.height * 0.06),
                               ),
                               Padding(
                                 padding: const EdgeInsets.only(top: 16.0,right: 32),
