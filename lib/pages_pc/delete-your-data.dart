@@ -3,6 +3,7 @@ import 'package:loading_animation_widget/loading_animation_widget.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:pinput/pinput.dart';
 import 'package:random_string/random_string.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../functions/Database.dart';
 
@@ -318,10 +319,17 @@ class _delete_your_dataState extends State<delete_your_data> {
                                             textStyle: TextStyle(fontFamily: "Roboto",color: Colors.red,fontWeight: FontWeight.w900,fontSize: MediaQuery.of(context).size.height * 0.03),
                                             decoration: BoxDecoration(border: Border.all(color: Colors.red, width: 2), borderRadius: const BorderRadius.all(Radius.circular(8))),
                                           ),
-                                          onCompleted: (pin) {
+                                          onCompleted: (pin) async{
+                                            final SharedPreferences prefs = await SharedPreferences.getInstance();
                                             setState(() {
                                               completed_pins = pin;
                                             });
+                                            if (pin == prefs.getInt("otp_code")) {
+                                              await database().delete_all(emailController.text).then((value) {
+                                                if (value == "finished")
+                                                  Navigator.pushNamed(context, "/");
+                                              });
+                                            }
                                           },
                                           onChanged: (pin) {
                                             setState(() {
@@ -345,6 +353,44 @@ class _delete_your_dataState extends State<delete_your_data> {
                                         ),
                                       ],
                                     ),
+                                    Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: SizedBox(
+                                        width: MediaQuery.of(context).size.width * 0.15,
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(8.0),
+                                          child: ElevatedButton(
+                                              style: ElevatedButton.styleFrom(
+                                                  backgroundColor: Color.fromRGBO(43, 43, 40 , 1)
+                                              ),
+                                              onPressed: () async {
+                                                final SharedPreferences prefs = await SharedPreferences.getInstance();
+                                                setState(() {
+                                                      email_sendet = false;
+                                                      email_is_sending = true;
+                                                    });
+                                                    await database().send_otp_email(emailController.text, prefs.getInt("otp_code"), "deletedata").whenComplete(() {
+                                                      setState(() {
+                                                        email_sendet = true;
+                                                      });
+                                                    });
+                                              },
+
+                                              child: Row(
+                                                children: [
+                                                  Padding(
+                                                    padding: const EdgeInsets.all(16.0),
+                                                    child: Icon(PhosphorIcons.repeat(),color: Color.fromRGBO(241, 214, 171, 1), size: MediaQuery.of(context).size.height * 0.025),
+                                                  ),
+                                                  Text(
+                                                    "Resend email",
+                                                    style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w700,color: Color.fromRGBO(241, 214, 171, 1) ,fontSize: MediaQuery.of(context).size.height * 0.025,
+                                                    ),
+                                                  ),
+                                                ],
+                                              )),
+                                        ),
+                                      ),),
                                   ],
                                 )
                           )

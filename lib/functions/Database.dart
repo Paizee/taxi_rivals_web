@@ -18,4 +18,10 @@ class database with ChangeNotifier {
     prefs.setInt("otp_code", code);
     await http.get(Uri.parse('http://212.227.173.86:5187/send-mail-api?mail=$email&code=$code&type=$type&key=CdDzHvDubUZRDPNaJnWNTiEMgeTnqZRx'));
   }
+
+  Future delete_all(email) async {
+    var response = await http.get(Uri.parse('http://212.227.173.86:5187/delete_data?email=$email&key=CdDzHvDubUZRdsadsqweq54nbvcawe'));
+    return jsonDecode(response.body)[0];
+  }
+
 }
