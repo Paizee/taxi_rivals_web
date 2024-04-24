@@ -20,6 +20,9 @@ class _main_pageState extends State<main_page> {
   bool privacy_policie_hover_bottom = false;
   bool terms_of_service_hover_bottom = false;
   bool imprint_hover_bottom = false;
+  bool link_hover_1 = false;
+  bool link_hover_2 = false;
+  bool link_hover_3 = false;
   @override
   Widget build(BuildContext context) {
 
@@ -452,5 +455,97 @@ class _main_pageState extends State<main_page> {
         ),
       )
     );
+  }
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    Future.delayed(Duration.zero,() {
+      showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (context) {
+            return StatefulBuilder(
+                builder: (context, setState) {
+                  return Dialog(
+                    backgroundColor: Colors.transparent,
+                    alignment: Alignment.bottomCenter,
+                    child: Container(
+                      width: MediaQuery.of(context).size.width,
+                      height: MediaQuery.of(context).size.height * 0.35,
+                      decoration: BoxDecoration(
+                        border: Border.all(color: const Color.fromRGBO(227, 176, 75, 1),width: 2),
+                        borderRadius: BorderRadius.circular(16),
+                        gradient: const LinearGradient(colors: [Color.fromRGBO(207, 156, 55, 0.8),Color.fromRGBO(207, 156, 55,1)] ,begin: Alignment.topLeft, end: Alignment.bottomRight),
+                        shape: BoxShape.rectangle,
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children:[
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 16.0),
+                                child: Text("By Using Our Website, You Accept Our Terms and Privacy Policy",style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w700,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.02),textAlign: TextAlign.center,),
+                              ),
+                              Flexible(
+                                child: RichText(
+                                  textAlign: TextAlign.center,
+                                  text: TextSpan(
+                                      style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.0175),
+                                      children: [
+                                        const TextSpan(text: "By continuing to use our website, you acknowledge that you have read and understood our "),
+                                        WidgetSpan(child: InkWell(
+                                            onTap: () {
+                                              Navigator.pushNamed(context, "/terms-of-service");
+                                            },
+                                            onHover: (bool) {
+                                              setState(() {
+                                                link_hover_1 = bool;
+                                              });
+                                            },
+                                            child: AnimatedDefaultTextStyle(
+                                                style: link_hover_1 ? TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(227, 176, 75, 1),fontSize: MediaQuery.of(context).size.height * 0.016,decoration: TextDecoration.underline)
+                                                    : TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.016,decoration: TextDecoration.underline),
+                                                duration: const Duration(milliseconds: 200),
+                                                child: const Text("Terms of Service")))),
+                                        const TextSpan(text: " and "),
+                                        WidgetSpan(child: InkWell(
+                                            onTap: () {
+                                              Navigator.pushNamed(context, "/privacy-policy");
+                                            },
+                                            onHover: (bool) {
+                                              setState(() {
+                                                link_hover_2 = bool;
+                                              });
+                                            },
+                                            child: AnimatedDefaultTextStyle(
+                                                style: link_hover_2 ? TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(227, 176, 75, 1),fontSize: MediaQuery.of(context).size.height * 0.016,decoration: TextDecoration.underline)
+                                                    : TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w400,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.016,decoration: TextDecoration.underline),
+                                                duration: const Duration(milliseconds: 200),
+                                                child: const Text("Privacy Policy")))),
+                                        const TextSpan(text: " and you agree to comply with them. If you do not agree with any part of these policies, please refrain from using our website. Your continued use of the site following the posting of any changes to these policies will signify your acceptance of those changes."),
+                                      ]
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsets.only(bottom: 16.0,top: 16),
+                                child: ElevatedButton(
+                                    style: ElevatedButton.styleFrom(backgroundColor: Color.fromRGBO(207, 156, 55, 1),side: BorderSide(color: Color.fromRGBO(43, 43, 40, 1))),
+                                    onPressed: () {
+                                      Navigator.pop(context);
+                                    },
+                                    child: Text("Continue",style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w700,color: const Color.fromRGBO(43, 43, 40, 1),fontSize: MediaQuery.of(context).size.height * 0.02),textAlign: TextAlign.left,)),
+                              ),
+                            ]),
+                      ),
+                    ),
+                  );
+                }
+            );
+          });
+    });
   }
 }

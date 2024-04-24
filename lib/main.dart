@@ -11,35 +11,37 @@ import 'package:taxi_rivals_web/pages_pc/delete-your-data.dart' as pc;
 import 'package:taxi_rivals_web/pages_mobile/delete-your-data.dart' as mobile;
 import 'package:flutter_web_plugins/url_strategy.dart';
 import 'package:device_info_plus/device_info_plus.dart';
-
+import 'package:flutter_modular/flutter_modular.dart';
 
 void main() {
   setUrlStrategy(PathUrlStrategy());
-  runApp(const MyApp());
+  return runApp(ModularApp(module: AppModule(), child: MyApp()));
+}
+
+class AppModule extends Module {
+
+  @override
+  void binds(i) {}
+
+  @override
+  void routes(r) {
+    r.child('/', child: (context) => MediaQuery.of(context).size.width > 500 ?  pc.main_page() : mobile.main_page());
+    r.child("/delete-your-data", child: (context) => MediaQuery.of(context).size.width > 500 ? mobile.delete_your_data() : mobile.delete_your_data());
+    r.child("/imprint", child: (context) => MediaQuery.of(context).size.width > 500 ? pc.Imprint() : mobile.Imprint());
+    r.child("/privacy-policy", child: (context) => MediaQuery.of(context).size.width > 500 ? pc.Privacy_policy() : mobile.Privacy_policy());
+    r.child("/terms-of-service", child: (context) =>  MediaQuery.of(context).size.width > 500 ? pc.Terms_of_service() : mobile.Terms_of_service());
+  }
 }
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      initialRoute: '/',
+    return MaterialApp.router(
+      routerConfig: Modular.routerConfig,
       onGenerateTitle: (d) {
         return "Taxi Rivals";
       },
-    routes:  MediaQuery.of(context).size.width > 500 ? {
-         "/": (_) => const pc.main_page(),
-         "/delete-your-data": (_) => const pc.delete_your_data(),
-         "/imprint": (_) => const pc.Imprint(),
-        "/privacy-policy": (_) => const pc.Privacy_policy(),
-         "/terms-of-service": (_) => const pc.Terms_of_service(),
-     } : {
-      "/": (_) => const mobile.main_page(),
-      "/delete-your-data": (_) => const mobile.delete_your_data(),
-      "/imprint": (_) => const mobile.Imprint(),
-      "/privacy-policy": (_) => const mobile.Privacy_policy(),
-      "/terms-of-service": (_) => const mobile.Terms_of_service(),
-    },
     );
   }
 

@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_animated_icons/lottiefiles.dart';
 import 'package:loading_animation_widget/loading_animation_widget.dart';
+import 'package:lottie/lottie.dart';
 import 'package:phosphor_flutter/phosphor_flutter.dart';
 import 'package:pinput/pinput.dart';
 import 'package:random_string/random_string.dart';
@@ -231,8 +233,7 @@ class _delete_your_dataState extends State<delete_your_data> {
                                                   setState(() {
                                                     email_is_sending = true;
                                                   });
-                                                  var code = randomNumeric(4);
-                                                  await database().send_otp_email(emailController.text, code, "deletedata").whenComplete(() {
+                                                  await database().send_otp_email(emailController.text, int.parse(randomNumeric(4)), "deletedata").whenComplete(() {
                                                     setState(() {
                                                       email_sendet = true;
                                                     });
@@ -324,10 +325,45 @@ class _delete_your_dataState extends State<delete_your_data> {
                                             setState(() {
                                               completed_pins = pin;
                                             });
-                                            if (pin == prefs.getInt("otp_code")) {
+                                            if (pin == prefs.getInt("otp_code").toString()) {
                                               await database().delete_all(emailController.text).then((value) {
-                                                if (value == "finished")
-                                                  Navigator.pushNamed(context, "/");
+                                                if (value == "finished") {
+                                                  Future.delayed(Duration(seconds: 3),(){
+                                                    Navigator.pushNamed(context, "/");
+                                                  });
+                                                  showDialog(
+                                                      context: context,
+                                                      builder: (context) {
+                                                        return Dialog(
+                                                          backgroundColor: Colors.transparent,
+                                                          child: SizedBox(
+                                                            width: MediaQuery.sizeOf(context).width * 0.4,
+                                                            height: MediaQuery.sizeOf(context).width * 0.3,
+                                                            child: Center(
+                                                              child: Scaffold(
+                                                                body: Center(
+                                                                  child: Column(
+                                                                    children: [
+                                                                      Lottie.asset(LottieFiles.own_check_icon,
+                                                                        animate: true,
+                                                                        repeat: false,
+                                                                        width: MediaQuery.of(context).size.width * 0.2,
+                                                                        alignment: Alignment.center,),
+                                                                      Text(
+                                                                        "Your account has been successfully deleted!",
+                                                                        softWrap: true,
+                                                                        style: TextStyle(fontFamily: "Roboto",color: Color.fromRGBO(43, 43, 40 , 1),fontWeight: FontWeight.w600,fontSize: MediaQuery.of(context).size.height * 0.03),
+                                                                        textAlign: TextAlign.center,
+                                                                      ),
+                                                                    ],
+                                                                  ),
+                                                                ),
+                                                              ),
+                                                            ),
+                                                          ),
+                                                        );
+                                                      });
+                                                }
                                               });
                                             }
                                           },
@@ -354,9 +390,9 @@ class _delete_your_dataState extends State<delete_your_data> {
                                       ],
                                     ),
                                     Padding(
-                                      padding: const EdgeInsets.all(8.0),
+                                      padding: const EdgeInsets.all(32.0),
                                       child: SizedBox(
-                                        width: MediaQuery.of(context).size.width * 0.15,
+                                        width: MediaQuery.of(context).size.width * 0.11,
                                         child: Padding(
                                           padding: const EdgeInsets.all(8.0),
                                           child: ElevatedButton(
@@ -383,7 +419,7 @@ class _delete_your_dataState extends State<delete_your_data> {
                                                     child: Icon(PhosphorIcons.repeat(),color: Color.fromRGBO(241, 214, 171, 1), size: MediaQuery.of(context).size.height * 0.025),
                                                   ),
                                                   Text(
-                                                    "Resend email",
+                                                    "Resend",
                                                     style: TextStyle(fontFamily: "Roboto",fontWeight: FontWeight.w700,color: Color.fromRGBO(241, 214, 171, 1) ,fontSize: MediaQuery.of(context).size.height * 0.025,
                                                     ),
                                                   ),
